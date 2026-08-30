@@ -1,4 +1,9 @@
-# Clinica Abetamente Site Vision
+# Clínica Abertamente — laboratório Lovable
+
+Estação React/TanStack Start para experimentos de UI/UX da Clínica Abertamente.
+O projeto de produção em Next.js permanece separado.
+
+Leia [LOVABLE_WORKSPACE.md](./LOVABLE_WORKSPACE.md) antes de modificar a interface.
 
 @connector:github:"GitHub API" voce consegue enxergar meu repositorio clinica-abertamente-site?
 
