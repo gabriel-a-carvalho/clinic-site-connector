@@ -17,7 +17,7 @@ function ReadingPanel({
           {assessment.title}
         </h3>
       ) : null}
-      <p className=" max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
+      <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
         {assessment.description}
       </p>
       <p className="mt-4 text-xs leading-relaxed text-foreground/60">
