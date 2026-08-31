@@ -1,8 +1,14 @@
-import { ArrowLeft, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, CheckCircle2, Facebook, Instagram, Linkedin } from "lucide-react";
 import { Link, createFileRoute, notFound } from "@tanstack/react-router";
 import { ImagePlaceholder } from "@/components/prototype/image-placeholder";
 import { TeamCard } from "@/components/prototype/team-card";
-import { teamMembers, whatsappUrl } from "@/data/mock-content";
+import { teamMembers } from "@/data/mock-content";
+
+const mockSocialLinks = [
+  { label: "Instagram", icon: Instagram },
+  { label: "Facebook", icon: Facebook },
+  { label: "LinkedIn", icon: Linkedin },
+];
 
 export const Route = createFileRoute("/equipe/$slug")({
   beforeLoad: ({ params }) => {
@@ -45,14 +51,29 @@ function TeamMemberDetail() {
                 </li>
               ))}
             </ul>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-8 inline-flex min-h-11 w-fit items-center justify-center rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-forest"
+            <div className="mt-8 flex items-center gap-3" aria-label="Redes sociais de exemplo">
+              {mockSocialLinks.map(({ label, icon: Icon }) => (
+                <button
+                  key={label}
+                  type="button"
+                  aria-label={`${label} de ${member.name} (conteúdo de demonstração)`}
+                  title={`${label} — conteúdo de demonstração`}
+                  className="inline-flex size-11 items-center justify-center rounded-full border border-primary/45 text-primary transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                >
+                  <Icon aria-hidden="true" className="size-4" />
+                </button>
+              ))}
+            </div>
+            <button
+              type="button"
+              aria-label={`Ver disponibilidade de ${member.name} pelo WhatsApp (ação de demonstração)`}
+              title="Ação de demonstração — futuramente abrirá o WhatsApp"
+              data-mock-action="future-whatsapp-availability"
+              className="mt-8 inline-flex min-h-11 w-fit items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-forest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
             >
-              Conversar com a clínica
-            </a>
+              Ver disponibilidade
+              <ArrowUpRight aria-hidden="true" className="size-4" />
+            </button>
           </div>
         </div>
         <section className="mt-16">

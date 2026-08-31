@@ -31,6 +31,10 @@ com `data-lovable-target`:
 Os dados em `src/data/mock-content.ts` são mocks de protótipo. Não criar CMS,
 backend ou integração WordPress neste repositório.
 
+No perfil de profissional, as redes sociais e o CTA `Ver disponibilidade` são
+ações mockadas. O CTA deverá abrir o WhatsApp somente na integração futura; não
+é necessário implementar agora um destino, uma agenda ou uma integração real.
+
 Como Serviços, Metodologia, Espaço, Blog e Contato não pertencem ao protótipo,
 seus links no shell servem apenas como contexto visual e apontam para a área
 relevante mais próxima. Não criar essas seções sem autorização explícita.
