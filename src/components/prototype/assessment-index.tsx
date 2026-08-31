@@ -3,13 +3,21 @@ import { ArrowUpRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import type { AssessmentMock } from "@/data/mock-content";
 
-function ReadingPanel({ assessment }: { assessment: AssessmentMock }) {
+function ReadingPanel({
+  assessment,
+  showTitle = true,
+}: {
+  assessment: AssessmentMock;
+  showTitle?: boolean;
+}) {
   return (
     <div key={assessment.slug} className="animate-drawer-enter">
-      <h3 className="font-display text-2xl font-medium italic leading-snug text-primary md:text-3xl">
-        {assessment.title}
-      </h3>
-      <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
+      {showTitle ? (
+        <h3 className="font-display text-2xl font-medium italic leading-snug text-primary md:text-3xl">
+          {assessment.title}
+        </h3>
+      ) : null}
+      <p className=" max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
         {assessment.description}
       </p>
       <p className="mt-4 text-xs leading-relaxed text-foreground/60">
@@ -72,7 +80,7 @@ export function AssessmentIndex({ assessments }: { assessments: AssessmentMock[]
               {/* Painel em acordeão no mobile/tablet */}
               {isActive && active ? (
                 <div className="pb-8 lg:hidden">
-                  <ReadingPanel assessment={active} />
+                  <ReadingPanel assessment={active} showTitle={false} />
                 </div>
               ) : null}
             </li>
