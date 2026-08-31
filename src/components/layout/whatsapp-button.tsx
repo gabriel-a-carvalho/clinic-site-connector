@@ -14,7 +14,7 @@ export function WhatsAppButton() {
   useEffect(() => {
     const footer = document.querySelector("[data-site-footer]");
     if (!footer) return;
-    const observer = new IntersectionObserver(([entry]) => setFooterNear(entry.isIntersecting), {
+    const observer = new IntersectionObserver(([entry]) => setFooterNear(!!entry?.isIntersecting), {
       rootMargin: "0px 0px -24px 0px",
     });
     observer.observe(footer);
