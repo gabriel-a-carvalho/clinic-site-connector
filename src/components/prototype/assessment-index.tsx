@@ -1,99 +1,120 @@
-import { useState } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { useId, useState } from "react";
+import {
+  ArrowUpRight,
+  BookOpen,
+  Brain,
+  Fingerprint,
+  Focus,
+  Lightbulb,
+  Waypoints,
+  type LucideIcon,
+} from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import type { AssessmentMock } from "@/data/mock-content";
+import { cn } from "@/lib/utils";
 
-function ReadingPanel({
-  assessment,
-  showTitle = true,
-}: {
-  assessment: AssessmentMock;
-  showTitle?: boolean;
-}) {
-  return (
-    <div key={assessment.slug} className="animate-drawer-enter">
-      {showTitle ? (
-        <h3 className="font-display text-2xl font-medium italic leading-snug text-primary md:text-3xl">
-          {assessment.title}
-        </h3>
-      ) : null}
-      <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
-        {assessment.description}
-      </p>
-      <p className="mt-4 text-xs leading-relaxed text-foreground/60">
-        {assessment.themes.join(" · ")}
-      </p>
-      <Link
-        to="/avaliacoes/$slug"
-        params={{ slug: assessment.slug }}
-        className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-primary"
-      >
-        Mais sobre esta avaliação
-        <ArrowUpRight aria-hidden="true" className="size-4" />
-      </Link>
-    </div>
-  );
-}
+const iconBySlug: Record<string, LucideIcon> = {
+  "investigacao-de-tdah": Focus,
+  "avaliacao-neuropsicologica": Brain,
+  "investigacao-de-tea": Waypoints,
+  "avaliacao-de-aprendizagem": BookOpen,
+  "avaliacao-de-personalidade": Fingerprint,
+  "avaliacao-cognitiva": Lightbulb,
+};
 
 export function AssessmentIndex({ assessments }: { assessments: AssessmentMock[] }) {
-  const [activeSlug, setActiveSlug] = useState(assessments[0]?.slug ?? "");
-  const active = assessments.find((item) => item.slug === activeSlug) ?? assessments[0];
+  const baseId = useId();
+  const [openSlug, setOpenSlug] = useState(assessments[0]?.slug ?? "");
 
   return (
-    <div>
-      <ol className="border-t">
-        {assessments.map((assessment, index) => {
-          const isActive = assessment.slug === active?.slug;
-          return (
-            <li key={assessment.slug} className="border-b">
+    <ol className="border-y border-foreground/10">
+      {assessments.map((assessment) => {
+        const isOpen = assessment.slug === openSlug;
+        const Icon = iconBySlug[assessment.slug] ?? Brain;
+        const panelId = `${baseId}-${assessment.slug}`;
+
+        return (
+          <li
+            key={assessment.slug}
+            className="border-b border-foreground/10 last:border-b-0"
+          >
+            <h3>
               <button
                 type="button"
-                onMouseEnter={() => setActiveSlug(assessment.slug)}
-                onFocus={() => setActiveSlug(assessment.slug)}
-                onClick={() => setActiveSlug(assessment.slug)}
-                aria-expanded={isActive}
-                className="group grid w-full grid-cols-[auto_minmax(0,1fr)_auto] items-baseline gap-4 py-4 text-left transition-[padding,color] duration-300 hover:pl-2 md:py-5"
+                onClick={() => setOpenSlug(isOpen ? "" : assessment.slug)}
+                aria-expanded={isOpen}
+                aria-controls={panelId}
+                className="group grid w-full grid-cols-[1.75rem_minmax(0,1fr)_2.5rem] items-center gap-4 py-6 text-left outline-none md:py-7"
               >
-                <span
+                <Icon
                   aria-hidden="true"
-                  className={`font-display text-sm tabular-nums transition-colors ${
-                    isActive ? "text-accent" : "text-foreground/25"
-                  }`}
-                >
-                  {String(index + 1).padStart(2, "0")}
-                </span>
+                  strokeWidth={1.5}
+                  className={cn(
+                    "size-[19px] transition-colors duration-300",
+                    isOpen
+                      ? "text-primary"
+                      : "text-foreground/55 group-hover:text-foreground/80 group-focus-visible:text-foreground/80",
+                  )}
+                />
                 <span
-                  className={`truncate font-display text-lg leading-snug transition-colors md:text-xl ${
-                    isActive ? "text-primary" : "text-foreground/75"
-                  }`}
+                  className={cn(
+                    "font-display text-lg leading-snug transition-colors duration-300 md:text-xl",
+                    isOpen
+                      ? "text-primary"
+                      : "text-foreground/80 group-hover:text-foreground group-focus-visible:text-foreground group-focus-visible:underline group-focus-visible:decoration-accent group-focus-visible:decoration-2 group-focus-visible:underline-offset-8",
+                  )}
                 >
                   {assessment.title}
                 </span>
                 <span
                   aria-hidden="true"
-                  className={`h-px self-center bg-accent transition-all duration-300 ${
-                    isActive ? "w-8 opacity-100" : "w-0 opacity-0"
-                  }`}
-                />
+                  className="relative flex h-5 items-center justify-self-end"
+                  style={{ width: 34 }}
+                >
+                  {/* barra horizontal: vira o traço "−" quando aberto */}
+                  <span
+                    className={cn(
+                      "absolute right-0 h-[2px] rounded-full transition-all duration-300 motion-reduce:transition-none",
+                      isOpen ? "w-[34px] bg-accent" : "w-3 bg-foreground/40",
+                    )}
+                  />
+                  {/* barra vertical: some ao abrir, formando o "+" quando fechado */}
+                  <span
+                    className={cn(
+                      "absolute right-[5px] h-3 w-[2px] rounded-full bg-foreground/40 transition-all duration-300 motion-reduce:transition-none",
+                      isOpen ? "scale-y-0 opacity-0" : "scale-y-100 opacity-100",
+                    )}
+                  />
+                </span>
               </button>
+            </h3>
 
-              {/* Painel em acordeão no mobile/tablet */}
-              {isActive && active ? (
-                <div className="pb-8 lg:hidden">
-                  <ReadingPanel assessment={active} showTitle={false} />
-                </div>
-              ) : null}
-            </li>
-          );
-        })}
-      </ol>
-
-      {/* Painel de leitura fixo no desktop */}
-      {active ? (
-        <div className="mt-10 hidden lg:block">
-          <ReadingPanel assessment={active} />
-        </div>
-      ) : null}
-    </div>
+            <div
+              id={panelId}
+              hidden={!isOpen}
+              className="grid grid-cols-[1.75rem_minmax(0,1fr)] gap-4"
+            >
+              <div />
+              <div className="animate-drawer-enter pb-8 motion-reduce:animate-none">
+                <p className="max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
+                  {assessment.description}
+                </p>
+                <p className="mt-4 text-xs leading-relaxed text-foreground/60">
+                  {assessment.themes.join(" · ")}
+                </p>
+                <Link
+                  to="/avaliacoes/$slug"
+                  params={{ slug: assessment.slug }}
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-primary"
+                >
+                  Mais sobre esta avaliação
+                  <ArrowUpRight aria-hidden="true" className="size-4" />
+                </Link>
+              </div>
+            </div>
+          </li>
+        );
+      })}
+    </ol>
   );
 }
