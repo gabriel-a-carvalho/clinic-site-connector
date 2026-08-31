@@ -13,11 +13,11 @@ export function PrototypeAssessments() {
     >
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute -top-28 -left-32 size-[26rem] rounded-full bg-sage-light/70"
+        className="pointer-events-none absolute -top-28 -left-32 hidden size-[26rem] rounded-full bg-sage-light/60 lg:block"
       />
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute top-40 -left-10 size-40 rounded-full border border-accent/15"
+        className="pointer-events-none absolute top-40 -left-10 hidden size-40 rounded-full border border-accent/10 lg:block"
       />
 
       <div className="relative mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
@@ -31,9 +31,10 @@ export function PrototypeAssessments() {
             <em className="font-medium text-primary">boa pergunta</em>.
           </h2>
           <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground md:text-base">
-            Reunimos processos de avaliação conduzidos com escuta, tempo e cuidado. Percorra o
-            índice ao lado para entender do que se trata cada um.
+            Reunimos processos de avaliação conduzidos com escuta, tempo e cuidado. Explore as
+            avaliações para entender do que se trata cada processo.
           </p>
+
           <Link
             to="/avaliacoes"
             className="mt-8 inline-flex min-h-11 items-center gap-2 border-b border-primary/40 pb-1 text-sm font-semibold text-primary transition-colors hover:border-accent hover:text-accent"
