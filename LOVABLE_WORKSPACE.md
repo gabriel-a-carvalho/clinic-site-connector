@@ -13,6 +13,7 @@ não fazem parte do redesign:
 - `src/components/layout/site-footer.tsx`
 - `src/components/layout/whatsapp-button.tsx`
 - `src/components/layout/app-shell.tsx`
+- `src/components/sections/prototype-space-rental.tsx`
 - tokens e tipografia em `src/styles.css`
 
 ## Áreas autorizadas para reconstrução
@@ -20,10 +21,17 @@ não fazem parte do redesign:
 O Lovable pode redesenhar livremente somente os componentes e rotas marcados
 com `data-lovable-target`:
 
-- seção de Avaliações na home;
-- catálogo `/avaliacoes`;
-- detalhe `/avaliacoes/:slug`;
-- banner de Sublocação próximo ao Footer.
+- seção de Avaliações na home.
+
+## Superfícies aprovadas e congeladas
+
+O catálogo `/avaliacoes` e o detalhe `/avaliacoes/:slug` já estão aprovados.
+Eles servem como referência visual e comportamental para a seção da home, mas
+não podem ser redesenhados, reestruturados ou ter seu conteúdo alterado.
+
+Para tarefas sobre Avaliações, modifique exclusivamente o elemento marcado com
+`data-lovable-target="assessments"`. Não altere o shell, o banner de Sublocação,
+o catálogo, o detalhe, os mocks ou qualquer outra seção e rota.
 
 Os dados em `src/data/mock-content.ts` são mocks de protótipo. Não criar CMS,
 backend ou integração WordPress neste repositório.
@@ -36,5 +44,5 @@ relevante mais próxima. Não criar essas seções sem autorização explícita.
 
 A aplicação real está no repositório GitHub
 `gcarvalho-labs/clinica-abertamente-site`. A branch `main` deve ser consultada
-somente como referência de código. O pacote ZIP `docs/lovable` fornecido na
-conversa é a referência visual e comportamental.
+somente como referência de código. A interface existente neste laboratório é a
+referência visual e comportamental para qualquer área preservada.

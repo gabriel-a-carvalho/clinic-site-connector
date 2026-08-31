@@ -5,7 +5,6 @@ export function PrototypeSpaceRental() {
   return (
     <section
       id="sublocacao"
-      data-lovable-target="space-rental"
       aria-labelledby="space-rental-title"
       className="relative z-10 -mt-12 translate-y-1/2 px-4 md:-mt-16 md:px-8"
     >

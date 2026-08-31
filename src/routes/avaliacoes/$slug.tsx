@@ -21,7 +21,7 @@ function AssessmentDetail() {
   ];
 
   return (
-    <article data-lovable-target="assessment-detail" className="px-4 py-16 md:px-8 md:py-24">
+    <article className="px-4 py-16 md:px-8 md:py-24">
       <div className="mx-auto max-w-5xl">
         <Link
           to="/avaliacoes"

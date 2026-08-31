@@ -7,7 +7,7 @@ export const Route = createFileRoute("/avaliacoes/")({ component: AssessmentsCat
 
 function AssessmentsCatalog() {
   return (
-    <section data-lovable-target="assessments-catalog" className="px-4 py-20 md:px-8 md:py-24">
+    <section className="px-4 py-20 md:px-8 md:py-24">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="Avaliações"
