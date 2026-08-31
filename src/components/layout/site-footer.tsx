@@ -4,8 +4,7 @@ import { cn } from "@/lib/utils";
 const navigationItems = [
   ["Serviços", "/#avaliacoes"],
   ["Avaliações", "/#avaliacoes"],
-  ["Equipe", "/#equipe"],
-  ["Metodologia", "/#equipe"],
+  ["Metodologia", "/#avaliacoes"],
   ["Espaço", "/#sublocacao"],
   ["Blog", "/"],
   ["Contato", "/#sublocacao"],

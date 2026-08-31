@@ -4,8 +4,7 @@ import { useEffect, useRef, useState } from "react";
 const primaryItems = [
   { label: "Serviços", href: "/#avaliacoes" },
   { label: "Avaliações", href: "/#avaliacoes" },
-  { label: "Equipe", href: "/#equipe" },
-  { label: "Metodologia", href: "/#equipe" },
+  { label: "Metodologia", href: "/#avaliacoes" },
   { label: "Espaço", href: "/#sublocacao" },
 ];
 

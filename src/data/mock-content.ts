@@ -6,15 +6,6 @@ export type AssessmentMock = {
   indication: string;
 };
 
-export type TeamMemberMock = {
-  slug: string;
-  name: string;
-  role: string;
-  registry: string;
-  bio: string;
-  specialties: string[];
-};
-
 export const assessments: AssessmentMock[] = [
   {
     slug: "investigacao-de-tdah",
@@ -69,73 +60,6 @@ export const assessments: AssessmentMock[] = [
     themes: ["Atenção", "Memória", "Raciocínio", "Planejamento"],
     indication:
       "Ajuda a observar potencialidades, dificuldades e possíveis impactos nas atividades do cotidiano.",
-  },
-];
-
-export const teamMembers: TeamMemberMock[] = [
-  {
-    slug: "ana-silva",
-    name: "Ana Silva",
-    role: "Psicóloga Clínica",
-    registry: "CRP 08/12345",
-    bio: "Especialista em TCC com foco no cuidado de adultos diante de ansiedade e depressão.",
-    specialties: ["Terapia Cognitivo-Comportamental", "Ansiedade", "Depressão"],
-  },
-  {
-    slug: "livia-almeida",
-    name: "Lívia Almeida",
-    role: "Psicóloga Clínica",
-    registry: "CRP 08/90001",
-    bio: "Atua com adultos em processos de ansiedade, autoestima e regulação emocional.",
-    specialties: ["Ansiedade", "Autoconhecimento", "Regulação emocional"],
-  },
-  {
-    slug: "bruno-teixeira",
-    name: "Bruno Teixeira",
-    role: "Psicopedagogo",
-    registry: "CRP 08/90007",
-    bio: "Apoia crianças e adolescentes diante de desafios escolares, atenção e aprendizagem.",
-    specialties: ["Aprendizagem", "TDAH", "Desenvolvimento Infantil"],
-  },
-  {
-    slug: "carla-santos",
-    name: "Carla Santos",
-    role: "Terapeuta de Casal",
-    registry: "CRP 08/23456",
-    bio: "Ajuda casais e famílias a construir diálogos mais saudáveis e vínculos mais fortes.",
-    specialties: ["Terapia de Casal", "Conflitos Familiares", "Comunicação"],
-  },
-  {
-    slug: "lucas-freitas",
-    name: "Lucas Freitas",
-    role: "Psicólogo Infantil",
-    registry: "CRP 08/90010",
-    bio: "Atua com desenvolvimento emocional infantil e orientação aos responsáveis.",
-    specialties: ["Ludoterapia", "Autismo", "Comportamento Infantil"],
-  },
-  {
-    slug: "camila-nogueira",
-    name: "Camila Nogueira",
-    role: "Psicóloga Infantil",
-    registry: "CRP 08/90003",
-    bio: "Trabalha com crianças e responsáveis por meio de recursos lúdicos e escuta acolhedora.",
-    specialties: ["Desenvolvimento Infantil", "Ludoterapia", "Família"],
-  },
-  {
-    slug: "eduardo-rocha",
-    name: "Eduardo Rocha",
-    role: "Psicólogo Clínico",
-    registry: "CRP 08/90009",
-    bio: "Acompanha adultos na compreensão de padrões emocionais e relacionais.",
-    specialties: ["Autoconhecimento", "Comunicação", "Relacionamentos"],
-  },
-  {
-    slug: "mariana-costa",
-    name: "Mariana Costa",
-    role: "Psicopedagoga",
-    registry: "CRP 08/34567",
-    bio: "Atua com crianças e adolescentes em dificuldades de aprendizagem e neurodesenvolvimento.",
-    specialties: ["Aprendizagem", "Neurodesenvolvimento", "Adolescência"],
   },
 ];
 
