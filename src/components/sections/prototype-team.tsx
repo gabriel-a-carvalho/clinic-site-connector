@@ -30,7 +30,7 @@ function Portrait({ member }: { member: Member }) {
     >
       <div
         className={cn(
-          "relative aspect-[4/5] overflow-hidden rounded-[2rem] rounded-tl-[6rem]",
+          "relative aspect-[4/5] overflow-hidden rounded-[2rem]",
           member.tone,
         )}
       >
