@@ -26,7 +26,7 @@ function Portrait({ member, index }: { member: Member; index: number }) {
       href={whatsappUrl}
       target="_blank"
       rel="noreferrer"
-      className={cn("group block", index % 3 === 1 && "lg:mt-16", index % 3 === 2 && "lg:mt-8")}
+      className="group block"
     >
       <div
         className={cn(
