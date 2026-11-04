@@ -1,0 +1,1 @@
+- [x] Aplicar as seis fotos distintas na seção Equipe, preservando sua composição e usando nomes fictícios autorizados.
