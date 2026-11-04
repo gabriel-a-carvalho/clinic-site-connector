@@ -68,10 +68,10 @@ export function PrototypeTeam() {
     <section id="equipe" aria-labelledby="team-title" className="relative overflow-hidden px-4 py-20 md:px-8 md:py-28">
       <span aria-hidden="true" className="pointer-events-none absolute -right-40 top-10 hidden size-[30rem] rounded-full bg-terracotta-light/60 lg:block" />
       <div className="relative mx-auto max-w-6xl">
-        <header className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+        <header className="flex justify-center text-center">
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.24em] text-accent">Equipe</p>
-            <h2 id="team-title" className="mt-5 max-w-lg font-display text-4xl font-semibold leading-[1.08] text-foreground md:text-5xl">
+            <h2 id="team-title" className="mx-auto mt-5 max-w-lg font-display text-4xl font-semibold leading-[1.08] text-foreground md:text-5xl">
               Pessoas que <em className="font-medium text-primary">escutam</em> antes de qualquer resposta.
             </h2>
           </div>
