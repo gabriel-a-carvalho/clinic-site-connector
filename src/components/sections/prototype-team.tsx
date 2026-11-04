@@ -74,6 +74,9 @@ export function PrototypeTeam() {
             <h2 id="team-title" className="mx-auto mt-5 max-w-lg font-display text-4xl font-semibold leading-[1.08] text-foreground md:text-5xl">
               Nossa&nbsp;<em className="font-medium text-primary">Equipe</em>&nbsp;
             </h2>
+            <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
+              Profissionais qualificados, acolhedores e comprometidos com seu bem-estar emocional.
+            </p>
           </div>
         </header>
 
