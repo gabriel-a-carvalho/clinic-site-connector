@@ -20,7 +20,7 @@ const team: Member[] = [
   { name: "Gabriel Naim", role: "Psicólogo Clínico", focus: "Investigação de TDAH e TEA", tone: "bg-terracotta-light", photo: gabrielPhoto.url },
 ];
 
-function Portrait({ member, index }: { member: Member; index: number }) {
+function Portrait({ member }: { member: Member }) {
   return (
     <a
       href={whatsappUrl}
@@ -42,9 +42,6 @@ function Portrait({ member, index }: { member: Member; index: number }) {
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 motion-safe:group-hover:scale-105"
         />
-        <span className="absolute top-5 right-5 flex size-8 items-center justify-center rounded-full bg-background/80 font-display text-sm text-foreground backdrop-blur-sm">
-          {String(index + 1).padStart(2, "0")}
-        </span>
         <div className="absolute inset-x-4 bottom-4 translate-y-3 rounded-2xl bg-background/90 px-4 py-3 opacity-0 backdrop-blur transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100">
           <p className="text-[0.7rem] uppercase tracking-[0.2em] text-accent">Atende</p>
           <p className="mt-1 text-sm text-foreground">{member.focus}</p>
@@ -81,7 +78,7 @@ export function PrototypeTeam() {
         </header>
 
         <div className="mt-16 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
-          {team.map((m, i) => <Portrait key={m.name} member={m} index={i} />)}
+          {team.map((m) => <Portrait key={m.name} member={m} />)}
         </div>
       </div>
     </section>
