@@ -72,7 +72,7 @@ export function PrototypeTeam() {
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.24em] text-accent">Equipe</p>
             <h2 id="team-title" className="mx-auto mt-5 max-w-lg font-display text-4xl font-semibold leading-[1.08] text-foreground md:text-5xl">
-              Nossaquipequipe
+              Nossa&nbsp;<em className="font-medium text-primary">Equipe</em>&nbsp;
             </h2>
           </div>
         </header>
