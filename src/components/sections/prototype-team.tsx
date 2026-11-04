@@ -42,15 +42,19 @@ function Portrait({ member }: { member: Member }) {
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 motion-safe:group-hover:scale-105"
         />
-      </div>
-      <div className="mt-5 flex items-start justify-between gap-4 px-1">
-        <div className="min-w-0">
-          <h3 className="truncate font-display text-xl text-foreground">{member.name}</h3>
-          <p className="mt-1 text-sm text-primary">{member.role}</p>
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-foreground/80 via-foreground/35 to-transparent"
+        />
+        <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5">
+          <div className="min-w-0">
+            <h3 className="truncate font-display text-xl text-background">{member.name}</h3>
+            <p className="mt-1 text-sm text-background/80">{member.role}</p>
+          </div>
+          <span className="flex size-10 shrink-0 items-center justify-center rounded-full border border-background/40 text-background transition-colors duration-300 group-hover:bg-background group-hover:text-foreground group-focus-visible:bg-background group-focus-visible:text-foreground">
+            <ArrowUpRight aria-hidden="true" className="size-4" />
+          </span>
         </div>
-        <span className="flex size-10 shrink-0 items-center justify-center rounded-full border border-accent/30 text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-accent-foreground">
-          <ArrowUpRight aria-hidden="true" className="size-4" />
-        </span>
       </div>
     </a>
   );
