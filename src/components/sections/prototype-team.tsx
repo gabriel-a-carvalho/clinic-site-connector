@@ -75,15 +75,6 @@ export function PrototypeTeam() {
               Pessoas que <em className="font-medium text-primary">escutam</em> antes de qualquer resposta.
             </h2>
           </div>
-          <div className="lg:pb-2">
-            <p className="max-w-sm text-sm leading-relaxed text-muted-foreground md:text-base">
-              Profissionais qualificados, acolhedores e comprometidos com o seu bem-estar emocional — cada um com um olhar próprio, todos com o mesmo cuidado.
-            </p>
-            <dl className="mt-6 flex gap-10 border-t border-foreground/10 pt-5">
-              <div><dt className="text-xs text-muted-foreground">Psicólogos</dt><dd className="font-display text-3xl text-primary">06</dd></div>
-              <div><dt className="text-xs text-muted-foreground">Abordagens</dt><dd className="font-display text-3xl text-primary">04</dd></div>
-            </dl>
-          </div>
         </header>
 
         <div className="mt-16 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
