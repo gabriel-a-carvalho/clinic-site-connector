@@ -3,10 +3,17 @@ import { PrototypeAssessments } from "@/components/sections/prototype-assessment
 import { PrototypeSpaceRental } from "@/components/sections/prototype-space-rental";
 import { PrototypeTeam } from "@/components/sections/prototype-team";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Clínica Abertamente | Cuidado e acolhimento" },
+      { name: "description", content: "Conheça a equipe, as avaliações e os espaços da Clínica Abertamente." },
+      { property: "og:title", content: "Clínica Abertamente | Cuidado e acolhimento" },
+      { property: "og:description", content: "Conheça a equipe, as avaliações e os espaços da Clínica Abertamente." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 

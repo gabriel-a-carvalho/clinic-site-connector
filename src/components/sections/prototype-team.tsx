@@ -1,19 +1,24 @@
 import { ArrowUpRight } from "lucide-react";
 import { whatsappUrl } from "@/data/mock-content";
 import { cn } from "@/lib/utils";
+import kawanaPhoto from "@/assets/team-kawana.webp.asset.json";
+import luanaPhoto from "@/assets/team-luana.webp.asset.json";
+import marianaPhoto from "@/assets/team-mariana.webp.asset.json";
+import leticiaPhoto from "@/assets/team-leticia.webp.asset.json";
+import laynaPhoto from "@/assets/team-layna.webp.asset.json";
+import gabrielPhoto from "@/assets/team-gabriel.jpg.asset.json";
 
-type Member = { name: string; role: string; focus: string; tone: string };
+type Member = { name: string; role: string; focus: string; tone: string; photo: string };
 
+// Placeholder names are intentionally fictitious, as requested by the user.
 const team: Member[] = [
-  { name: "Kawana Silva", role: "Psicóloga Clínica", focus: "Adolescentes e adultos", tone: "bg-sage-light" },
-  { name: "Luana Aires", role: "Psicóloga Clínica", focus: "Avaliação neuropsicológica", tone: "bg-terracotta-light" },
-  { name: "Mariana Sartorelli", role: "Psicóloga Clínica", focus: "Terapia de casal e família", tone: "bg-warm" },
-  { name: "Maria Leticia", role: "Psicóloga Clínica", focus: "Infância e desenvolvimento", tone: "bg-warm" },
-  { name: "Layna Gimenes", role: "Psicóloga Clínica", focus: "Ansiedade e autoconhecimento", tone: "bg-sage-light" },
-  { name: "Gabriel Naim", role: "Psicólogo Clínico", focus: "Investigação de TDAH e TEA", tone: "bg-terracotta-light" },
+  { name: "Kawana Silva", role: "Psicóloga Clínica", focus: "Adolescentes e adultos", tone: "bg-sage-light", photo: kawanaPhoto.url },
+  { name: "Luana Aires", role: "Psicóloga Clínica", focus: "Avaliação neuropsicológica", tone: "bg-terracotta-light", photo: luanaPhoto.url },
+  { name: "Mariana Sartorelli", role: "Psicóloga Clínica", focus: "Terapia de casal e família", tone: "bg-warm", photo: marianaPhoto.url },
+  { name: "Maria Leticia", role: "Psicóloga Clínica", focus: "Infância e desenvolvimento", tone: "bg-warm", photo: leticiaPhoto.url },
+  { name: "Layna Gimenes", role: "Psicóloga Clínica", focus: "Ansiedade e autoconhecimento", tone: "bg-sage-light", photo: laynaPhoto.url },
+  { name: "Gabriel Naim", role: "Psicólogo Clínico", focus: "Investigação de TDAH e TEA", tone: "bg-terracotta-light", photo: gabrielPhoto.url },
 ];
-
-const initials = (n: string) => n.split(" ").map((p) => p[0]).slice(0, 2).join("");
 
 function Portrait({ member, index }: { member: Member; index: number }) {
   return (
@@ -24,18 +29,20 @@ function Portrait({ member, index }: { member: Member; index: number }) {
       className={cn("group block", index % 3 === 1 && "lg:mt-16", index % 3 === 2 && "lg:mt-8")}
     >
       <div
-        role="img"
-        aria-label={`Retrato de ${member.name}`}
         className={cn(
           "relative aspect-[4/5] overflow-hidden rounded-[2rem] rounded-tl-[6rem] transition-[border-radius] duration-500 group-hover:rounded-tl-[2rem]",
           member.tone,
         )}
       >
-        <span className="absolute inset-0 flex items-center justify-center font-display text-7xl italic text-primary/25 transition-transform duration-700 group-hover:scale-110">
-          {initials(member.name)}
-        </span>
-        <span className="absolute -right-10 -bottom-10 size-40 rounded-full border border-primary/10" />
-        <span className="absolute top-5 right-5 font-display text-sm text-foreground/40">
+        <img
+          src={member.photo}
+          alt={`Retrato da equipe — ${member.name} (nome fictício)`}
+          width={640}
+          height={800}
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 motion-safe:group-hover:scale-105"
+        />
+        <span className="absolute top-5 right-5 flex size-8 items-center justify-center rounded-full bg-background/80 font-display text-sm text-foreground backdrop-blur-sm">
           {String(index + 1).padStart(2, "0")}
         </span>
         <div className="absolute inset-x-4 bottom-4 translate-y-3 rounded-2xl bg-background/90 px-4 py-3 opacity-0 backdrop-blur transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100">
