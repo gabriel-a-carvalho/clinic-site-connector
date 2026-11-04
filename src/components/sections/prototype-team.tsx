@@ -42,10 +42,6 @@ function Portrait({ member }: { member: Member }) {
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 motion-safe:group-hover:scale-105"
         />
-        <div className="absolute inset-x-4 bottom-4 translate-y-3 rounded-2xl bg-background/90 px-4 py-3 opacity-0 backdrop-blur transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100">
-          <p className="text-[0.7rem] uppercase tracking-[0.2em] text-accent">Atende</p>
-          <p className="mt-1 text-sm text-foreground">{member.focus}</p>
-        </div>
       </div>
       <div className="mt-5 flex items-start justify-between gap-4 px-1">
         <div className="min-w-0">
