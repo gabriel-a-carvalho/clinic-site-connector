@@ -1,5 +1,13 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, ArrowUpRight, BadgeCheck, MessageCircle } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowUpRight,
+  BadgeCheck,
+  CircleCheck,
+  Instagram,
+  Linkedin,
+  MessageCircle,
+} from "lucide-react";
 import { findTeamMember, teamMembers, type TeamMember } from "@/data/team-members";
 import { whatsappUrl } from "@/data/mock-content";
 import { cn } from "@/lib/utils";
@@ -89,19 +97,36 @@ function ProfileHero({ member }: { member: TeamMember }) {
             >
               {member.name}
             </h1>
-            <p className="mt-4 inline-flex w-fit items-center gap-2 rounded-full border border-border px-3.5 py-1.5 text-xs font-medium tracking-wide text-muted-foreground">
-              <BadgeCheck aria-hidden="true" className="size-3.5 text-primary" />
-              {member.crp}
-            </p>
+            <div className="mt-4 flex flex-wrap items-center gap-4">
+              <p className="inline-flex w-fit items-center gap-2 rounded-full border border-border px-3.5 py-1.5 text-xs font-medium tracking-wide text-muted-foreground">
+                <BadgeCheck aria-hidden="true" className="size-3.5 text-primary" />
+                {member.crp}
+              </p>
+              <ul className="flex items-center gap-2" aria-label={`Redes sociais de ${member.name}`}>
+                {member.socials.map((social) => (
+                  <li key={social.label}>
+                    <a
+                      href={social.href}
+                      aria-label={social.label}
+                      className="flex size-10 items-center justify-center rounded-full border border-primary/25 text-primary transition-colors duration-300 hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                    >
+                      {social.label === "Instagram" ? (
+                        <Instagram aria-hidden="true" className="size-4" />
+                      ) : (
+                        <Linkedin aria-hidden="true" className="size-4" />
+                      )}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
             <div className="mt-8 border-t border-border pt-8">
               <h2 className="text-sm font-semibold text-foreground">Áreas de atuação</h2>
-              <ul className="mt-4 flex flex-wrap gap-2">
+              <ul className="mt-4 grid gap-x-8 gap-y-3 sm:grid-cols-2">
                 {member.areas.map((area) => (
-                  <li
-                    key={area}
-                    className="rounded-full border border-primary/25 bg-sage-light/50 px-4 py-1.5 text-sm text-foreground"
-                  >
+                  <li key={area} className="flex items-center gap-2.5 text-sm text-muted-foreground">
+                    <CircleCheck aria-hidden="true" className="size-4 shrink-0 text-primary" />
                     {area}
                   </li>
                 ))}
@@ -118,10 +143,22 @@ function ProfileHero({ member }: { member: TeamMember }) {
                 <MessageCircle aria-hidden="true" className="size-4" />
                 Agendar uma conversa
               </a>
-              <p className="text-sm text-muted-foreground">
-                Atende <span className="text-foreground">{member.focus.toLowerCase()}</span>
-              </p>
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="group inline-flex items-center gap-2 rounded-full border border-accent/40 px-6 py-3.5 text-sm font-medium text-accent transition-colors duration-300 hover:bg-accent hover:text-accent-foreground"
+              >
+                Ver disponibilidade
+                <ArrowUpRight
+                  aria-hidden="true"
+                  className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                />
+              </a>
             </div>
+            <p className="mt-5 text-sm text-muted-foreground">
+              Atende <span className="text-foreground">{member.focus.toLowerCase()}</span>
+            </p>
           </div>
         </div>
       </div>
