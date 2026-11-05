@@ -80,6 +80,10 @@ export const teamMembers: TeamMember[] = [
     photo: luanaPhoto.url,
     areas: ["Avaliação neuropsicológica", "Funções executivas", "Aprendizagem"],
     quote: "Compreender a mente é o primeiro passo para cuidar dela.",
+    socials: [
+      { label: "Instagram", href: "#" },
+      { label: "LinkedIn", href: "#" },
+    ],
     bio: [
       {
         paragraphs: [
@@ -104,6 +108,10 @@ export const teamMembers: TeamMember[] = [
     photo: marianaPhoto.url,
     areas: ["Terapia de casal", "Terapia familiar", "Relacionamentos"],
     quote: "Relações saudáveis se constroem com escuta e presença.",
+    socials: [
+      { label: "Instagram", href: "#" },
+      { label: "LinkedIn", href: "#" },
+    ],
     bio: [
       {
         paragraphs: [
@@ -128,6 +136,10 @@ export const teamMembers: TeamMember[] = [
     photo: leticiaPhoto.url,
     areas: ["Psicologia infantil", "Desenvolvimento", "Orientação parental"],
     quote: "Toda criança carrega um mundo que merece ser escutado.",
+    socials: [
+      { label: "Instagram", href: "#" },
+      { label: "LinkedIn", href: "#" },
+    ],
     bio: [
       {
         paragraphs: [
@@ -152,6 +164,10 @@ export const teamMembers: TeamMember[] = [
     photo: laynaPhoto.url,
     areas: ["Ansiedade", "Autoconhecimento", "Autoestima"],
     quote: "O autoconhecimento é um caminho que se faz em companhia.",
+    socials: [
+      { label: "Instagram", href: "#" },
+      { label: "LinkedIn", href: "#" },
+    ],
     bio: [
       {
         paragraphs: [
@@ -176,6 +192,10 @@ export const teamMembers: TeamMember[] = [
     photo: gabrielPhoto.url,
     areas: ["Investigação de TDAH", "Investigação de TEA", "Avaliação cognitiva"],
     quote: "Cada mente funciona de um jeito — e cada jeito merece compreensão.",
+    socials: [
+      { label: "Instagram", href: "#" },
+      { label: "LinkedIn", href: "#" },
+    ],
     bio: [
       {
         paragraphs: [
