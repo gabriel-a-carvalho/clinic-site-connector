@@ -195,39 +195,6 @@ function ProfileBio({ member }: { member: TeamMember }) {
             </div>
           ))}
         </div>
-
-        <aside className="lg:sticky lg:top-24 lg:self-start">
-          <div className="rounded-[2rem] border border-border bg-card p-8">
-            <h2 className="text-xs font-medium uppercase tracking-[0.24em] text-accent">
-              Em resumo
-            </h2>
-            <dl className="mt-6 space-y-6">
-              <div className="border-l-2 border-primary/30 pl-4">
-                <dt className="text-xs uppercase tracking-wider text-muted-foreground">Registro</dt>
-                <dd className="mt-1 text-sm font-medium text-foreground">{member.crp}</dd>
-              </div>
-              <div className="border-l-2 border-primary/30 pl-4">
-                <dt className="text-xs uppercase tracking-wider text-muted-foreground">Público</dt>
-                <dd className="mt-1 text-sm font-medium text-foreground">{member.focus}</dd>
-              </div>
-              <div className="border-l-2 border-primary/30 pl-4">
-                <dt className="text-xs uppercase tracking-wider text-muted-foreground">Atuação</dt>
-                <dd className="mt-1 text-sm font-medium text-foreground">
-                  {member.areas.join(" · ")}
-                </dd>
-              </div>
-            </dl>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-8 flex items-center justify-center gap-2 rounded-full border border-accent/40 px-6 py-3 text-sm font-medium text-accent transition-colors duration-300 hover:bg-accent hover:text-accent-foreground"
-            >
-              Falar com a clínica
-              <ArrowUpRight aria-hidden="true" className="size-4" />
-            </a>
-          </div>
-        </aside>
       </div>
     </section>
   );
