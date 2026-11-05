@@ -138,15 +138,6 @@ function ProfileHero({ member }: { member: TeamMember }) {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex items-center gap-2.5 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground transition-colors duration-300 hover:bg-forest"
-              >
-                <MessageCircle aria-hidden="true" className="size-4" />
-                Agendar uma conversa
-              </a>
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noreferrer"
                 className="group inline-flex items-center gap-2 rounded-full border border-accent/40 px-6 py-3.5 text-sm font-medium text-accent transition-colors duration-300 hover:bg-accent hover:text-accent-foreground"
               >
                 Ver disponibilidade
