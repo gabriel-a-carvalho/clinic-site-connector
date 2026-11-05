@@ -6,7 +6,6 @@ import {
   CircleCheck,
   Instagram,
   Linkedin,
-  MessageCircle,
 } from "lucide-react";
 import { findTeamMember, teamMembers, type TeamMember } from "@/data/team-members";
 import { whatsappUrl } from "@/data/mock-content";
@@ -134,15 +133,6 @@ function ProfileHero({ member }: { member: TeamMember }) {
             </div>
 
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="group inline-flex items-center gap-2.5 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground transition-colors duration-300 hover:bg-forest"
-              >
-                <MessageCircle aria-hidden="true" className="size-4" />
-                Agendar uma conversa
-              </a>
               <a
                 href={whatsappUrl}
                 target="_blank"
