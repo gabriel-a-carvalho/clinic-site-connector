@@ -21,6 +21,7 @@ export type TeamMember = {
   areas: string[];
   quote: string;
   bio: TeamMemberBioSection[];
+  socials: { label: string; href: string }[];
 };
 
 // Nomes, CRPs e biografias são fictícios (placeholders de protótipo),
@@ -36,6 +37,10 @@ export const teamMembers: TeamMember[] = [
     photo: kawanaPhoto.url,
     areas: ["Terapia Cognitivo-Comportamental", "Ansiedade", "Depressão"],
     quote: "Antes de tentar caber na vida de alguém, aprender a habitar a própria.",
+    socials: [
+      { label: "Instagram", href: "#" },
+      { label: "LinkedIn", href: "#" },
+    ],
     bio: [
       {
         paragraphs: [
