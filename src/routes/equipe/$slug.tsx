@@ -6,7 +6,6 @@ import {
   CircleCheck,
   Instagram,
   Linkedin,
-  MessageCircle,
 } from "lucide-react";
 import { findTeamMember, teamMembers, type TeamMember } from "@/data/team-members";
 import { whatsappUrl } from "@/data/mock-content";
