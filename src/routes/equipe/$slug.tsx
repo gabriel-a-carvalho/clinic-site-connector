@@ -154,32 +154,19 @@ function ProfileHero({ member }: { member: TeamMember }) {
 }
 
 function ProfileBio({ member }: { member: TeamMember }) {
+  const paragraphs = member.bio.flatMap((section) => section.paragraphs);
+
   return (
     <section aria-label={`Sobre ${member.name}`} className="px-4 pb-20 md:px-8 md:pb-28">
-      <div className="mx-auto max-w-3xl">
-        <div className="space-y-10">
-          {member.bio.map((section, index) => (
-            <div key={section.heading ?? `intro-${index}`}>
-              {section.heading ? (
-                <h2 className="font-display text-2xl font-semibold text-foreground md:text-3xl">
-                  {section.heading}
-                </h2>
-              ) : null}
-              <div className={cn("space-y-5", section.heading ? "mt-4" : undefined)}>
-                {section.paragraphs.map((paragraph, i) => (
-                  <p key={i} className="text-base leading-relaxed text-muted-foreground md:text-lg">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-              {index === 0 ? (
-                <blockquote className="mt-10 border-l-2 border-accent pl-6">
-                  <p className="font-display text-xl italic leading-snug text-foreground md:text-2xl">
-                    “{member.quote}”
-                  </p>
-                </blockquote>
-              ) : null}
-            </div>
+      <div className="mx-auto max-w-6xl">
+        <div className="md:max-w-3xl lg:max-w-none lg:columns-2 lg:gap-16">
+          {paragraphs.map((paragraph, i) => (
+            <p
+              key={i}
+              className="mb-5 break-inside-avoid text-base leading-relaxed text-muted-foreground last:mb-0 md:text-lg"
+            >
+              {paragraph}
+            </p>
           ))}
         </div>
       </div>
