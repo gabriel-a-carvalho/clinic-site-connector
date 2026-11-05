@@ -156,9 +156,6 @@ function ProfileHero({ member }: { member: TeamMember }) {
                 />
               </a>
             </div>
-            <p className="mt-5 text-sm text-muted-foreground">
-              Atende <span className="text-foreground">{member.focus.toLowerCase()}</span>
-            </p>
           </div>
         </div>
       </div>
