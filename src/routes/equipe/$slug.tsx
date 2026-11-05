@@ -155,11 +155,17 @@ function ProfileHero({ member }: { member: TeamMember }) {
 
 function ProfileBio({ member }: { member: TeamMember }) {
   const paragraphs = member.bio.flatMap((section) => section.paragraphs);
+  const spread = paragraphs.join(" ").length > 900;
 
   return (
     <section aria-label={`Sobre ${member.name}`} className="px-4 pb-20 md:px-8 md:pb-28">
       <div className="mx-auto max-w-6xl">
-        <div className="md:max-w-3xl lg:max-w-none lg:columns-2 lg:gap-16">
+        <div
+          className={cn(
+            "md:max-w-2xl",
+            spread ? "lg:max-w-none lg:columns-2 lg:gap-16" : undefined,
+          )}
+        >
           {paragraphs.map((paragraph, i) => (
             <p
               key={i}
