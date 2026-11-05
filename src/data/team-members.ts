@@ -57,15 +57,15 @@ export const teamMembers: TeamMember[] = [
       {
         heading: "Meu trabalho na Psicologia",
         paragraphs: [
-          "Na Psicologia, são seis anos de caminhada, com base na abordagem analítico-comportamental. Continuo estudando porque acredito que compreender o ser humano é uma tarefa que nunca termina. Meu trabalho é especialmente voltado para autoconhecimento e autoestima, e acredito que a terapia não precisa ser um lugar rígido, distante ou cheio de regras. Ela pode ser um lugar seguro, humano e leve, onde também podemos rir, questionar e, quando necessário, ouvir alguns desconfortos.",
+
         ],
       },
       {
         heading: "Terapia como encontro",
         paragraphs: [
-          "Acredito que terapia é um encontro. Um processo construído de mãos dadas: você traz a sua história, e eu ofereço escuta, conhecimento e direção para que, aos poucos, você possa se compreender de uma maneira diferente.",
-          "Porque talvez uma das coisas mais importantes que podemos aprender seja voltar para nós mesmos. Antes de tentar caber na vida de alguém, aprender a habitar a própria.",
-          "E talvez seja justamente isso que eu mais gosto na Psicologia: acompanhar alguém enquanto ela deixa, pouco a pouco, de apenas sobreviver à própria história e começa a construir",
+
+
+
         ],
       },
     ],
