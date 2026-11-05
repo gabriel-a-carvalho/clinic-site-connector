@@ -76,7 +76,7 @@ function ProfileHero({ member }: { member: TeamMember }) {
         className="pointer-events-none absolute -left-40 -top-24 hidden size-[28rem] rounded-full bg-sage-light/70 lg:block"
       />
       <div className="relative mx-auto max-w-6xl">
-        <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,3fr)_minmax(0,7fr)] lg:gap-16">
+        <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)] lg:gap-12">
           <div className={cn("relative aspect-[4/5] overflow-hidden rounded-[2.5rem]", member.tone)}>
             <img
               src={member.photo}
