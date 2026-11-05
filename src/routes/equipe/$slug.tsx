@@ -87,7 +87,7 @@ function ProfileHero({ member }: { member: TeamMember }) {
             />
           </div>
 
-          <div className="flex flex-col lg:pt-6">
+          <div className="flex flex-col lg:pt-6 lg:max-w-2xl">
             <p className="text-xs font-medium uppercase tracking-[0.24em] text-accent">{member.role}</p>
             <h1
               id="member-name"
