@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AvaliacoesIndexRouteImport } from './routes/avaliacoes/index'
 import { Route as AvaliacoesSlugRouteImport } from './routes/avaliacoes/$slug'
+import { Route as EquipeSlugRouteImport } from './routes/equipe/$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -28,34 +29,43 @@ const AvaliacoesSlugRoute = AvaliacoesSlugRouteImport.update({
   path: '/avaliacoes/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EquipeSlugRoute = EquipeSlugRouteImport.update({
+  id: '/equipe/$slug',
+  path: '/equipe/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/avaliacoes/$slug': typeof AvaliacoesSlugRoute
+  '/equipe/$slug': typeof EquipeSlugRoute
   '/avaliacoes/': typeof AvaliacoesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/avaliacoes/$slug': typeof AvaliacoesSlugRoute
+  '/equipe/$slug': typeof EquipeSlugRoute
   '/avaliacoes': typeof AvaliacoesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/avaliacoes/$slug': typeof AvaliacoesSlugRoute
+  '/equipe/$slug': typeof EquipeSlugRoute
   '/avaliacoes/': typeof AvaliacoesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/avaliacoes/$slug' | '/avaliacoes/'
+  fullPaths: '/' | '/avaliacoes/$slug' | '/equipe/$slug' | '/avaliacoes/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/avaliacoes/$slug' | '/avaliacoes'
-  id: '__root__' | '/' | '/avaliacoes/$slug' | '/avaliacoes/'
+  to: '/' | '/avaliacoes/$slug' | '/equipe/$slug' | '/avaliacoes'
+  id: '__root__' | '/' | '/avaliacoes/$slug' | '/equipe/$slug' | '/avaliacoes/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AvaliacoesSlugRoute: typeof AvaliacoesSlugRoute
+  EquipeSlugRoute: typeof EquipeSlugRoute
   AvaliacoesIndexRoute: typeof AvaliacoesIndexRoute
 }
 
@@ -82,12 +92,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AvaliacoesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/equipe/$slug': {
+      id: '/equipe/$slug'
+      path: '/equipe/$slug'
+      fullPath: '/equipe/$slug'
+      preLoaderRoute: typeof EquipeSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AvaliacoesSlugRoute: AvaliacoesSlugRoute,
+  EquipeSlugRoute: EquipeSlugRoute,
   AvaliacoesIndexRoute: AvaliacoesIndexRoute,
 }
 export const routeTree = rootRouteImport
