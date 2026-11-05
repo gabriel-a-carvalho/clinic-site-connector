@@ -1,2 +1,3 @@
 - [x] Aplicar as seis fotos distintas na seção Equipe, preservando sua composição e usando nomes fictícios autorizados.
 - [x] Criar página de perfil de membro (`/equipe/:slug`) em versão aprimorada da referência do site real, com dados mockados e cards da home ligados a ela.
+- [x] Deixar a biografia do perfil em texto corrido, sem títulos nem citação destacada, alinhada ao eixo da foto e da grade de "Outros profissionais".
