@@ -169,7 +169,7 @@ function ProfileHero({ member }: { member: TeamMember }) {
 function ProfileBio({ member }: { member: TeamMember }) {
   return (
     <section aria-label={`Sobre ${member.name}`} className="px-4 pb-20 md:px-8 md:pb-28">
-      <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16">
+      <div className="mx-auto max-w-3xl">
         <div className="space-y-10">
           {member.bio.map((section, index) => (
             <div key={section.heading ?? `intro-${index}`}>
