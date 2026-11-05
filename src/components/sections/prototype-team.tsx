@@ -1,31 +1,13 @@
+import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import { whatsappUrl } from "@/data/mock-content";
+import { teamMembers, type TeamMember } from "@/data/team-members";
 import { cn } from "@/lib/utils";
-import kawanaPhoto from "@/assets/team-kawana.webp.asset.json";
-import luanaPhoto from "@/assets/team-luana.webp.asset.json";
-import marianaPhoto from "@/assets/team-mariana.webp.asset.json";
-import leticiaPhoto from "@/assets/team-leticia.webp.asset.json";
-import laynaPhoto from "@/assets/team-layna.webp.asset.json";
-import gabrielPhoto from "@/assets/team-gabriel.jpg.asset.json";
 
-type Member = { name: string; role: string; focus: string; tone: string; photo: string };
-
-// Placeholder names are intentionally fictitious, as requested by the user.
-const team: Member[] = [
-  { name: "Kawana Silva", role: "Psicóloga Clínica", focus: "Adolescentes e adultos", tone: "bg-sage-light", photo: kawanaPhoto.url },
-  { name: "Luana Aires", role: "Psicóloga Clínica", focus: "Avaliação neuropsicológica", tone: "bg-terracotta-light", photo: luanaPhoto.url },
-  { name: "Mariana Sartorelli", role: "Psicóloga Clínica", focus: "Terapia de casal e família", tone: "bg-warm", photo: marianaPhoto.url },
-  { name: "Maria Leticia", role: "Psicóloga Clínica", focus: "Infância e desenvolvimento", tone: "bg-warm", photo: leticiaPhoto.url },
-  { name: "Layna Gimenes", role: "Psicóloga Clínica", focus: "Ansiedade e autoconhecimento", tone: "bg-sage-light", photo: laynaPhoto.url },
-  { name: "Gabriel Naim", role: "Psicólogo Clínico", focus: "Investigação de TDAH e TEA", tone: "bg-terracotta-light", photo: gabrielPhoto.url },
-];
-
-function Portrait({ member }: { member: Member }) {
+function Portrait({ member }: { member: TeamMember }) {
   return (
-    <a
-      href={whatsappUrl}
-      target="_blank"
-      rel="noreferrer"
+    <Link
+      to="/equipe/$slug"
+      params={{ slug: member.slug }}
       className="group block"
     >
       <div
@@ -54,7 +36,7 @@ function Portrait({ member }: { member: Member }) {
           </div>
         </div>
       </div>
-    </a>
+    </Link>
   );
 }
 
@@ -76,7 +58,7 @@ export function PrototypeTeam() {
         </header>
 
         <div className="mt-16 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
-          {team.map((m) => <Portrait key={m.name} member={m} />)}
+          {teamMembers.map((m) => <Portrait key={m.slug} member={m} />)}
         </div>
       </div>
     </section>

@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Team portraits use imported Lovable Assets pointers, so uploaded photos stay outside the repository and keep stable delivery URLs.
+- Team member data (slugs, names, CRPs, bios) lives in `src/data/team-members.ts` as the single source; both the home team section and the `/equipe/$slug` profile route consume it, so add or edit members only there.
